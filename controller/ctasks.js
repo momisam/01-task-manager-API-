@@ -4,11 +4,20 @@ const getAllTasks = (req, res) => {
 };
 
 const createTasks = async (req, res) => {
-    const task = await Task.create(req.body)
-    res.status(201).json({task});
-};
-const getTask = (req, res) => {
-    res.json({id:req.params.id});
+    try {
+        const task = await Task.create(req.body)
+        res.status(201).json({task});
+    }
+     catch (error) {
+        res.status(500).json({msg: error});
+    }}
+const getTask = async (req, res) => {
+    try {
+        const 
+        res.json({id:req.params.id});
+    } catch (error) {
+        
+    }
 };
 const updateTasks = (req, res) => {
     res.send('Update task');
